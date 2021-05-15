@@ -214,8 +214,8 @@
         <translation>&amp;Opsies</translation>
     </message>
     <message>
-        <source>faithcoin</source>
-        <translation>faithcoin</translation>
+        <source>happy</source>
+        <translation>happy</translation>
     </message>
     <message>
         <source>Wallet</source>

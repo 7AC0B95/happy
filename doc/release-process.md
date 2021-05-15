@@ -5,7 +5,7 @@ Before every release candidate:
 
 * Update translations (ping wumpus on IRC) see [translation_process.md](https://github.com/bitcoin/bitcoin/blob/master/doc/translation_process.md#synchronising-translations).
 
-* Update manpages, see [gen-manpages.sh](https://github.com/faithcoin-project/faithcoin/blob/master/contrib/devtools/README.md#gen-manpagessh).
+* Update manpages, see [gen-manpages.sh](https://github.com/happy-project/happy/blob/master/contrib/devtools/README.md#gen-manpagessh).
 
 Before every minor and major release:
 
@@ -33,12 +33,12 @@ If you're using the automated script (found in [contrib/gitian-build.sh](/contri
 Check out the source code in the following directory hierarchy.
 
     cd /path/to/your/toplevel/build
-    git clone https://github.com/faithcoin-project/gitian.sigs.ltc.git
-    git clone https://github.com/faithcoin-project/faithcoin-detached-sigs.git
+    git clone https://github.com/happy-project/gitian.sigs.ltc.git
+    git clone https://github.com/happy-project/happy-detached-sigs.git
     git clone https://github.com/devrandom/gitian-builder.git
-    git clone https://github.com/faithcoin-project/faithcoin.git
+    git clone https://github.com/happy-project/happy.git
 
-### faithcoin maintainers/release engineers, suggestion for writing release notes
+### happy maintainers/release engineers, suggestion for writing release notes
 
 Write release notes. git shortlog helps a lot, for example:
 
@@ -61,7 +61,7 @@ If you're using the automated script (found in [contrib/gitian-build.sh](/contri
 
 Setup Gitian descriptors:
 
-    pushd ./faithcoin
+    pushd ./happy
     export SIGNER=(your Gitian key, ie bluematt, sipa, etc)
     export VERSION=(new version, e.g. 0.8.0)
     git fetch
@@ -95,7 +95,7 @@ Create the OS X SDK tarball, see the [OS X readme](README_osx.md) for details, a
 By default, Gitian will fetch source files as needed. To cache them ahead of time:
 
     pushd ./gitian-builder
-    make -C ../faithcoin/depends download SOURCES_PATH=`pwd`/cache/common
+    make -C ../happy/depends download SOURCES_PATH=`pwd`/cache/common
     popd
 
 Only missing files will be fetched, so this is safe to re-run for each build.
@@ -103,50 +103,50 @@ Only missing files will be fetched, so this is safe to re-run for each build.
 NOTE: Offline builds must use the --url flag to ensure Gitian fetches only from local URLs. For example:
 
     pushd ./gitian-builder
-    ./bin/gbuild --url faithcoin=/path/to/faithcoin,signature=/path/to/sigs {rest of arguments}
+    ./bin/gbuild --url happy=/path/to/happy,signature=/path/to/sigs {rest of arguments}
     popd
 
 The gbuild invocations below <b>DO NOT DO THIS</b> by default.
 
-### Build and sign faithcoin Core for Linux, Windows, and OS X:
+### Build and sign happy Core for Linux, Windows, and OS X:
 
     pushd ./gitian-builder
-    ./bin/gbuild --num-make 2 --memory 3000 --commit faithcoin=v${VERSION} ../faithcoin/contrib/gitian-descriptors/gitian-linux.yml
-    ./bin/gsign --signer $SIGNER --release ${VERSION}-linux --destination ../gitian.sigs.ltc/ ../faithcoin/contrib/gitian-descriptors/gitian-linux.yml
-    mv build/out/faithcoin-*.tar.gz build/out/src/faithcoin-*.tar.gz ../
+    ./bin/gbuild --num-make 2 --memory 3000 --commit happy=v${VERSION} ../happy/contrib/gitian-descriptors/gitian-linux.yml
+    ./bin/gsign --signer $SIGNER --release ${VERSION}-linux --destination ../gitian.sigs.ltc/ ../happy/contrib/gitian-descriptors/gitian-linux.yml
+    mv build/out/happy-*.tar.gz build/out/src/happy-*.tar.gz ../
 
-    ./bin/gbuild --num-make 2 --memory 3000 --commit faithcoin=v${VERSION} ../faithcoin/contrib/gitian-descriptors/gitian-win.yml
-    ./bin/gsign --signer $SIGNER --release ${VERSION}-win-unsigned --destination ../gitian.sigs.ltc/ ../faithcoin/contrib/gitian-descriptors/gitian-win.yml
-    mv build/out/faithcoin-*-win-unsigned.tar.gz inputs/faithcoin-win-unsigned.tar.gz
-    mv build/out/faithcoin-*.zip build/out/faithcoin-*.exe ../
+    ./bin/gbuild --num-make 2 --memory 3000 --commit happy=v${VERSION} ../happy/contrib/gitian-descriptors/gitian-win.yml
+    ./bin/gsign --signer $SIGNER --release ${VERSION}-win-unsigned --destination ../gitian.sigs.ltc/ ../happy/contrib/gitian-descriptors/gitian-win.yml
+    mv build/out/happy-*-win-unsigned.tar.gz inputs/happy-win-unsigned.tar.gz
+    mv build/out/happy-*.zip build/out/happy-*.exe ../
 
-    ./bin/gbuild --num-make 2 --memory 3000 --commit faithcoin=v${VERSION} ../faithcoin/contrib/gitian-descriptors/gitian-osx.yml
-    ./bin/gsign --signer $SIGNER --release ${VERSION}-osx-unsigned --destination ../gitian.sigs.ltc/ ../faithcoin/contrib/gitian-descriptors/gitian-osx.yml
-    mv build/out/faithcoin-*-osx-unsigned.tar.gz inputs/faithcoin-osx-unsigned.tar.gz
-    mv build/out/faithcoin-*.tar.gz build/out/faithcoin-*.dmg ../
+    ./bin/gbuild --num-make 2 --memory 3000 --commit happy=v${VERSION} ../happy/contrib/gitian-descriptors/gitian-osx.yml
+    ./bin/gsign --signer $SIGNER --release ${VERSION}-osx-unsigned --destination ../gitian.sigs.ltc/ ../happy/contrib/gitian-descriptors/gitian-osx.yml
+    mv build/out/happy-*-osx-unsigned.tar.gz inputs/happy-osx-unsigned.tar.gz
+    mv build/out/happy-*.tar.gz build/out/happy-*.dmg ../
     popd
 
 Build output expected:
 
-  1. source tarball (`faithcoin-${VERSION}.tar.gz`)
-  2. linux 32-bit and 64-bit dist tarballs (`faithcoin-${VERSION}-linux[32|64].tar.gz`)
-  3. windows 32-bit and 64-bit unsigned installers and dist zips (`faithcoin-${VERSION}-win[32|64]-setup-unsigned.exe`, `faithcoin-${VERSION}-win[32|64].zip`)
-  4. OS X unsigned installer and dist tarball (`faithcoin-${VERSION}-osx-unsigned.dmg`, `faithcoin-${VERSION}-osx64.tar.gz`)
+  1. source tarball (`happy-${VERSION}.tar.gz`)
+  2. linux 32-bit and 64-bit dist tarballs (`happy-${VERSION}-linux[32|64].tar.gz`)
+  3. windows 32-bit and 64-bit unsigned installers and dist zips (`happy-${VERSION}-win[32|64]-setup-unsigned.exe`, `happy-${VERSION}-win[32|64].zip`)
+  4. OS X unsigned installer and dist tarball (`happy-${VERSION}-osx-unsigned.dmg`, `happy-${VERSION}-osx64.tar.gz`)
   5. Gitian signatures (in `gitian.sigs.ltc/${VERSION}-<linux|{win,osx}-unsigned>/(your Gitian key)/`)
 
 ### Verify other gitian builders signatures to your own. (Optional)
 
 Add other gitian builders keys to your gpg keyring, and/or refresh keys.
 
-    gpg --import faithcoin/contrib/gitian-keys/*.pgp
+    gpg --import happy/contrib/gitian-keys/*.pgp
     gpg --refresh-keys
 
 Verify the signatures
 
     pushd ./gitian-builder
-    ./bin/gverify -v -d ../gitian.sigs.ltc/ -r ${VERSION}-linux ../faithcoin/contrib/gitian-descriptors/gitian-linux.yml
-    ./bin/gverify -v -d ../gitian.sigs.ltc/ -r ${VERSION}-win-unsigned ../faithcoin/contrib/gitian-descriptors/gitian-win.yml
-    ./bin/gverify -v -d ../gitian.sigs.ltc/ -r ${VERSION}-osx-unsigned ../faithcoin/contrib/gitian-descriptors/gitian-osx.yml
+    ./bin/gverify -v -d ../gitian.sigs.ltc/ -r ${VERSION}-linux ../happy/contrib/gitian-descriptors/gitian-linux.yml
+    ./bin/gverify -v -d ../gitian.sigs.ltc/ -r ${VERSION}-win-unsigned ../happy/contrib/gitian-descriptors/gitian-win.yml
+    ./bin/gverify -v -d ../gitian.sigs.ltc/ -r ${VERSION}-osx-unsigned ../happy/contrib/gitian-descriptors/gitian-osx.yml
     popd
 
 ### Next steps:
@@ -167,22 +167,22 @@ Codesigner only: Create Windows/OS X detached signatures:
 
 Codesigner only: Sign the osx binary:
 
-    transfer faithcoin-osx-unsigned.tar.gz to osx for signing
-    tar xf faithcoin-osx-unsigned.tar.gz
+    transfer happy-osx-unsigned.tar.gz to osx for signing
+    tar xf happy-osx-unsigned.tar.gz
     ./detached-sig-create.sh -s "Key ID"
     Enter the keychain password and authorize the signature
     Move signature-osx.tar.gz back to the gitian host
 
 Codesigner only: Sign the windows binaries:
 
-    tar xf faithcoin-win-unsigned.tar.gz
+    tar xf happy-win-unsigned.tar.gz
     ./detached-sig-create.sh -key /path/to/codesign.key
     Enter the passphrase for the key when prompted
     signature-win.tar.gz will be created
 
 Codesigner only: Commit the detached codesign payloads:
 
-    cd ~/faithcoin-detached-sigs
+    cd ~/happy-detached-sigs
     checkout the appropriate branch for this release series
     rm -rf *
     tar xf signature-osx.tar.gz
@@ -195,25 +195,25 @@ Codesigner only: Commit the detached codesign payloads:
 Non-codesigners: wait for Windows/OS X detached signatures:
 
 - Once the Windows/OS X builds each have 3 matching signatures, they will be signed with their respective release keys.
-- Detached signatures will then be committed to the [faithcoin-detached-sigs](https://github.com/faithcoin-project/faithcoin-detached-sigs) repository, which can be combined with the unsigned apps to create signed binaries.
+- Detached signatures will then be committed to the [happy-detached-sigs](https://github.com/happy-project/happy-detached-sigs) repository, which can be combined with the unsigned apps to create signed binaries.
 
 Create (and optionally verify) the signed OS X binary:
 
     pushd ./gitian-builder
-    ./bin/gbuild -i --commit signature=v${VERSION} ../faithcoin/contrib/gitian-descriptors/gitian-osx-signer.yml
-    ./bin/gsign --signer $SIGNER --release ${VERSION}-osx-signed --destination ../gitian.sigs.ltc/ ../faithcoin/contrib/gitian-descriptors/gitian-osx-signer.yml
-    ./bin/gverify -v -d ../gitian.sigs.ltc/ -r ${VERSION}-osx-signed ../faithcoin/contrib/gitian-descriptors/gitian-osx-signer.yml
-    mv build/out/faithcoin-osx-signed.dmg ../faithcoin-${VERSION}-osx.dmg
+    ./bin/gbuild -i --commit signature=v${VERSION} ../happy/contrib/gitian-descriptors/gitian-osx-signer.yml
+    ./bin/gsign --signer $SIGNER --release ${VERSION}-osx-signed --destination ../gitian.sigs.ltc/ ../happy/contrib/gitian-descriptors/gitian-osx-signer.yml
+    ./bin/gverify -v -d ../gitian.sigs.ltc/ -r ${VERSION}-osx-signed ../happy/contrib/gitian-descriptors/gitian-osx-signer.yml
+    mv build/out/happy-osx-signed.dmg ../happy-${VERSION}-osx.dmg
     popd
 
 Create (and optionally verify) the signed Windows binaries:
 
     pushd ./gitian-builder
-    ./bin/gbuild -i --commit signature=v${VERSION} ../faithcoin/contrib/gitian-descriptors/gitian-win-signer.yml
-    ./bin/gsign --signer $SIGNER --release ${VERSION}-win-signed --destination ../gitian.sigs.ltc/ ../faithcoin/contrib/gitian-descriptors/gitian-win-signer.yml
-    ./bin/gverify -v -d ../gitian.sigs.ltc/ -r ${VERSION}-win-signed ../faithcoin/contrib/gitian-descriptors/gitian-win-signer.yml
-    mv build/out/faithcoin-*win64-setup.exe ../faithcoin-${VERSION}-win64-setup.exe
-    mv build/out/faithcoin-*win32-setup.exe ../faithcoin-${VERSION}-win32-setup.exe
+    ./bin/gbuild -i --commit signature=v${VERSION} ../happy/contrib/gitian-descriptors/gitian-win-signer.yml
+    ./bin/gsign --signer $SIGNER --release ${VERSION}-win-signed --destination ../gitian.sigs.ltc/ ../happy/contrib/gitian-descriptors/gitian-win-signer.yml
+    ./bin/gverify -v -d ../gitian.sigs.ltc/ -r ${VERSION}-win-signed ../happy/contrib/gitian-descriptors/gitian-win-signer.yml
+    mv build/out/happy-*win64-setup.exe ../happy-${VERSION}-win64-setup.exe
+    mv build/out/happy-*win32-setup.exe ../happy-${VERSION}-win32-setup.exe
     popd
 
 Commit your signature for the signed OS X/Windows binaries:
@@ -235,17 +235,17 @@ sha256sum * > SHA256SUMS
 
 The list of files should be:
 ```
-faithcoin-${VERSION}-aarch64-linux-gnu.tar.gz
-faithcoin-${VERSION}-arm-linux-gnueabihf.tar.gz
-faithcoin-${VERSION}-i686-pc-linux-gnu.tar.gz
-faithcoin-${VERSION}-x86_64-linux-gnu.tar.gz
-faithcoin-${VERSION}-osx64.tar.gz
-faithcoin-${VERSION}-osx.dmg
-faithcoin-${VERSION}.tar.gz
-faithcoin-${VERSION}-win32-setup.exe
-faithcoin-${VERSION}-win32.zip
-faithcoin-${VERSION}-win64-setup.exe
-faithcoin-${VERSION}-win64.zip
+happy-${VERSION}-aarch64-linux-gnu.tar.gz
+happy-${VERSION}-arm-linux-gnueabihf.tar.gz
+happy-${VERSION}-i686-pc-linux-gnu.tar.gz
+happy-${VERSION}-x86_64-linux-gnu.tar.gz
+happy-${VERSION}-osx64.tar.gz
+happy-${VERSION}-osx.dmg
+happy-${VERSION}.tar.gz
+happy-${VERSION}-win32-setup.exe
+happy-${VERSION}-win32.zip
+happy-${VERSION}-win64-setup.exe
+happy-${VERSION}-win64.zip
 ```
 The `*-debug*` files generated by the gitian build contain debug symbols
 for troubleshooting by developers. It is assumed that anyone that is interested
@@ -269,16 +269,16 @@ Note: check that SHA256SUMS itself doesn't end up in SHA256SUMS, which is a spur
 
 - Announce the release:
 
-  - faithcoin-dev and faithcoin-dev mailing list
+  - happy-dev and happy-dev mailing list
 
   - blog.faithco.in blog post
 
-  - Update title of #faithcoin and #faithcoin-dev on Freenode IRC
+  - Update title of #happy and #happy-dev on Freenode IRC
 
-  - Optionally twitter, reddit /r/faithcoin, ... but this will usually sort out itself
+  - Optionally twitter, reddit /r/happy, ... but this will usually sort out itself
 
   - Archive release notes for the new version to `doc/release-notes/` (branch `master` and branch of the release)
 
-  - Create a [new GitHub release](https://github.com/faithcoin-project/faithcoin/releases/new) with a link to the archived release notes.
+  - Create a [new GitHub release](https://github.com/happy-project/happy/releases/new) with a link to the archived release notes.
 
   - Celebrate

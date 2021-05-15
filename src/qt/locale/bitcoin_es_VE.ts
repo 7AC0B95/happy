@@ -114,8 +114,8 @@
         <translation>Reindexando bloques en el disco...</translation>
     </message>
     <message>
-        <source>Send coins to a faithcoin address</source>
-        <translation>Enviar monedas a una dirección faithcoin</translation>
+        <source>Send coins to a happy address</source>
+        <translation>Enviar monedas a una dirección happy</translation>
     </message>
     <message>
         <source>Backup wallet to another location</source>
@@ -130,8 +130,8 @@
         <translation>Abre la consola de depuración y diágnostico</translation>
     </message>
     <message>
-        <source>faithcoin</source>
-        <translation>faithcoin</translation>
+        <source>happy</source>
+        <translation>happy</translation>
     </message>
     <message>
         <source>Wallet</source>
@@ -158,12 +158,12 @@
         <translation>Encriptar las llaves privadas que pertenecen a tu billetera</translation>
     </message>
     <message>
-        <source>Sign messages with your faithcoin addresses to prove you own them</source>
-        <translation>Firma mensajes con tus direcciones faithcoin para probar que eres dueño de ellas</translation>
+        <source>Sign messages with your happy addresses to prove you own them</source>
+        <translation>Firma mensajes con tus direcciones happy para probar que eres dueño de ellas</translation>
     </message>
     <message>
-        <source>Verify messages to ensure they were signed with specified faithcoin addresses</source>
-        <translation>Verificar mensajes para asegurar que estaban firmados con direcciones faithcoin especificas</translation>
+        <source>Verify messages to ensure they were signed with specified happy addresses</source>
+        <translation>Verificar mensajes para asegurar que estaban firmados con direcciones happy especificas</translation>
     </message>
     <message>
         <source>&amp;File</source>
@@ -608,8 +608,8 @@
         <translation>Correr en segundo plano como daemon y aceptar comandos</translation>
     </message>
     <message>
-        <source>faithcoin Core</source>
-        <translation>faithcoin Core</translation>
+        <source>happy Core</source>
+        <translation>happy Core</translation>
     </message>
     <message>
         <source>Bind to given address and always listen on it. Use [host]:port notation for IPv6</source>

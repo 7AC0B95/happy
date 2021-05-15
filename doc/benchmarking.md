@@ -1,11 +1,11 @@
 Benchmarking
 ============
 
-faithcoin Core has an internal benchmarking framework, with benchmarks
+happy Core has an internal benchmarking framework, with benchmarks
 for cryptographic algorithms such as SHA1, SHA256, SHA512 and RIPEMD160. As well as the rolling bloom filter.
 
-After compiling faithcoin-core, the benchmarks can be run with:
-`src/bench/bench_faithcoin`
+After compiling happy-core, the benchmarks can be run with:
+`src/bench/bench_happy`
 
 The output will look similar to:
 ```

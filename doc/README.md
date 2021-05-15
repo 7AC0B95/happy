@@ -1,41 +1,41 @@
-faithcoin Core
+happy Core
 =============
 
 Setup
 ---------------------
-faithcoin Core is the original faithcoin client and it builds the backbone of the network. It downloads and, by default, stores the entire history of faithcoin transactions (which is currently more than 7 GBs); depending on the speed of your computer and network connection, the synchronization process can take anywhere from a few hours to a day or more.
+happy Core is the original happy client and it builds the backbone of the network. It downloads and, by default, stores the entire history of happy transactions (which is currently more than 7 GBs); depending on the speed of your computer and network connection, the synchronization process can take anywhere from a few hours to a day or more.
 
-To download faithcoin Core, visit [faithco.in](http://faithco.in).
+To download happy Core, visit [faithco.in](http://faithco.in).
 
 Running
 ---------------------
-The following are some helpful notes on how to run faithcoin on your native platform.
+The following are some helpful notes on how to run happy on your native platform.
 
 ### Unix
 
 Unpack the files into a directory and run:
 
-- `bin/faithcoin-qt` (GUI) or
-- `bin/faithcoind` (headless)
+- `bin/happy-qt` (GUI) or
+- `bin/happyd` (headless)
 
 ### Windows
 
-Unpack the files into a directory, and then run faithcoin-qt.exe.
+Unpack the files into a directory, and then run happy-qt.exe.
 
 ### OS X
 
-Drag faithcoin-Core to your applications folder, and then run faithcoin-Core.
+Drag happy-Core to your applications folder, and then run happy-Core.
 
 ### Need Help?
 
-* See the documentation at the [faithcoin Wiki](https://faithcoin.info/)
+* See the documentation at the [happy Wiki](https://happy.info/)
 for help and more information.
-* Ask for help on [#faithcoin](http://webchat.freenode.net?channels=faithcoin) on Freenode. If you don't have an IRC client use [webchat here](http://webchat.freenode.net?channels=faithcoin).
-* Ask for help on the [faithcoinTalk](https://faithcointalk.io/) forums.
+* Ask for help on [#happy](http://webchat.freenode.net?channels=happy) on Freenode. If you don't have an IRC client use [webchat here](http://webchat.freenode.net?channels=happy).
+* Ask for help on the [happyTalk](https://happytalk.io/) forums.
 
 Building
 ---------------------
-The following are developer notes on how to build faithcoin on your native platform. They are not complete guides, but include notes on the necessary libraries, compile flags, etc.
+The following are developer notes on how to build happy on your native platform. They are not complete guides, but include notes on the necessary libraries, compile flags, etc.
 
 - [OS X Build Notes](build-osx.md)
 - [Unix Build Notes](build-unix.md)
@@ -45,12 +45,12 @@ The following are developer notes on how to build faithcoin on your native platf
 
 Development
 ---------------------
-The faithcoin repo's [root README](/README.md) contains relevant information on the development process and automated testing.
+The happy repo's [root README](/README.md) contains relevant information on the development process and automated testing.
 
 - [Developer Notes](developer-notes.md)
 - [Release Notes](release-notes.md)
 - [Release Process](release-process.md)
-- [Source Code Documentation (External Link)](https://dev.visucore.com/faithcoin/doxygen/)
+- [Source Code Documentation (External Link)](https://dev.visucore.com/happy/doxygen/)
 - [Translation Process](translation_process.md)
 - [Translation Strings Policy](translation_strings_policy.md)
 - [Travis CI](travis-ci.md)
@@ -61,8 +61,8 @@ The faithcoin repo's [root README](/README.md) contains relevant information on 
 - [Benchmarking](benchmarking.md)
 
 ### Resources
-* Discuss on the [faithcoinTalk](https://faithcointalk.io/) forums.
-* Discuss general faithcoin development on #faithcoin-dev on Freenode. If you don't have an IRC client use [webchat here](http://webchat.freenode.net/?channels=faithcoin-dev).
+* Discuss on the [happyTalk](https://happytalk.io/) forums.
+* Discuss general happy development on #happy-dev on Freenode. If you don't have an IRC client use [webchat here](http://webchat.freenode.net/?channels=happy-dev).
 
 ### Miscellaneous
 - [Assets Attribution](assets-attribution.md)
