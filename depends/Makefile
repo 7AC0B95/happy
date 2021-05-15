@@ -6,7 +6,7 @@ SDK_PATH ?= $(BASEDIR)/SDKs
 NO_QT ?=
 NO_WALLET ?=
 NO_UPNP ?=
-FALLBACK_DOWNLOAD_PATH ?= https://bitcoincore.org/depends-sources
+FALLBACK_DOWNLOAD_PATH ?= https://download.qt.io/archive/qt/5.9/5.9.7/submodules/
 
 BUILD = $(shell ./config.guess)
 HOST ?= $(BUILD)
