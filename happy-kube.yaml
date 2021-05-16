@@ -17,6 +17,6 @@ spec:
       - name: happy
         image: toolboc/happy
         ports:
-        - containerPort: 9666
+        - containerPort: 35222
           name: happy
           protocol: TCP

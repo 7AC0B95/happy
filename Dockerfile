@@ -30,6 +30,6 @@ RUN make
 RUN make install
 
 #open service port
-EXPOSE 35222 9666 19666
+EXPOSE 35222 35222 135222
 
 CMD ["happyd", "--printtoconsole"]

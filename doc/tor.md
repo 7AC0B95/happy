@@ -42,11 +42,11 @@ reachable from the Tor network. Add these lines to your /etc/tor/torrc (or equiv
 config file):
 
 	HiddenServiceDir /var/lib/tor/happy-service/
-	HiddenServicePort 9666 127.0.0.1:9666
+	HiddenServicePort 35222 127.0.0.1:35222
 	HiddenServicePort 19335 127.0.0.1:19335
 
 The directory can be different of course, but (both) port numbers should be equal to
-your happyd's P2P listen port (9666 by default).
+your happyd's P2P listen port (35222 by default).
 
 	-externalip=X   You can tell happy about its publicly reachable address using
 	                this option, and this can be a .onion address. Given the above
@@ -81,7 +81,7 @@ as well, use `discover` instead:
 
 	./happyd ... -discover
 
-and open port 9666 on your firewall (or use -upnp).
+and open port 35222 on your firewall (or use -upnp).
 
 If you only want to use Tor to reach onion addresses, but not use it as a proxy
 for normal IPv4/IPv6 communication, use:
