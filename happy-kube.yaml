@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: triangleearth
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: triangleearth
+  template:
+    metadata:
+      labels:
+        app: triangleearth
+        version: v0.15
+    spec:
+      containers:
+      - name: triangleearth
+        image: toolboc/triangleearth
+        ports:
+        - containerPort: 35222
+          name: triangleearth
+          protocol: TCP
