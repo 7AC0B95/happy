@@ -4,7 +4,7 @@ This issue tracker is only for technical issues related to happy-core.
 
 General happy questions and/or support requests and are best directed to the [happytalk.io forums](https://happytalk.io/).
 
-For reporting security issues, please contact the happy developers on the #happy-dev Freenode IRC channel or alternatively you can email us at contact@faithco.in.
+For reporting security issues, please contact the happy developers on the #happy-dev Freenode IRC channel or alternatively you can email us at contact@hppy.be.
 
 ### Describe the issue
 
